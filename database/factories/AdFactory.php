@@ -18,8 +18,8 @@ class AdFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->word,
-            'description' => $this->faker->text,
+            'title' => $this->faker->text(60),
+            'description' => $this->faker->text(255),
             'author_id' => User::factory(),
             'created_at' => now()
         ];

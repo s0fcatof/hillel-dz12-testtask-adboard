@@ -1,8 +1,8 @@
 @extends('layout')
 
 @section('content')
-    <h2 style="text-align: center">Viewing Ad</h2>
-    <p><strong>{{ $ad->title }}</strong> <small>by <i>{{ $ad->author->username }}</i> {{ $ad->created_at->diffForHumans() }} </small></p>
+    <h3 style="text-align: center">Viewing Ad</h3>
+    <p><strong>{{ $ad->title }}</strong><br><small>Created by <i>{{ $ad->author->username }}</i> at {{ $ad->created_at }}</small></p>
     {{ $ad->description }} <br><br>
     @can('update', $ad)
         <span style="float: left"><a href="{{ route('ads.edit', ['ad' => $ad->id]) }}" class="btn btn-outline-warning btn-sm" role="button">Edit</a></span>

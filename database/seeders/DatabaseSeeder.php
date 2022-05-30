@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
     {
         User::factory()
             ->count(20)
-            ->hasAds(5)
+            ->hasAds(3)
             ->create();
     }
 }

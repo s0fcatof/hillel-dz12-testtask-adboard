@@ -13,10 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    route('ads.index');
-})->name('home');
-
 Route::name('ads.')->group(function () {
     Route::get('/', [\App\Http\Controllers\AdController::class, 'index'])
         ->name('index');
@@ -30,7 +26,7 @@ Route::name('ads.')->group(function () {
         ->name('store');
 
     Route::get('/{ad}', [\App\Http\Controllers\AdController::class, 'show'])
-        ->where('id', '[0-9]+')
+        ->where('ad', '[0-9]+')
         ->name('show');
 
     Route::get('/edit/{ad}', [\App\Http\Controllers\AdController::class, 'edit'])
@@ -45,6 +41,8 @@ Route::name('ads.')->group(function () {
         ->middleware('can:delete,ad')
         ->name('destroy');
 });
+
+Route::get('/login', fn() => redirect('/'));
 
 Route::post('/login', [\App\Http\Controllers\AuthController::class, 'login'])
     ->middleware('guest')

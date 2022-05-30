@@ -11,7 +11,9 @@ class AdController
 {
     public function index()
     {
-        $ads = Ad::orderBy('created_at', 'desc')->paginate(5);
+        $ads = Ad::with('author')
+            ->orderBy('created_at', 'desc')
+            ->paginate(5);
 
         return view('ads', compact('ads'));
     }

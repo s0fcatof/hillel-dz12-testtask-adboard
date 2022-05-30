@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('ads', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('description');
+            $table->string('title', 60);
+            $table->string('description', 255);
             $table->foreignId('author_id');
             $table->timestamps();
 
